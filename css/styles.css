@@ -1,0 +1,96 @@
+:root {
+    --primary-background-color: #faf8ff;
+    --text-color: #242424;
+    --primary-color: #068488;
+    --secondary-color: #00c6cf;
+    --grey-cyan: #324b4c;
+}
+
+body {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 2;
+    margin: 50px;
+    background-color: var(--primary-background-color);
+    color: var(--text-color);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+header {
+    width: 400px;
+    border: 2px solid var(--primary-color);
+    margin: 50px 0;
+    padding: 30px;
+}
+
+.list {
+    color: var(--primary-color);
+    padding: 5px;
+    outline: 2px solid var(--primary-color);
+    border-radius: 10px;
+    text-decoration: none;
+  }
+  
+  
+.list:hover,
+.list:focus {
+    text-decoration: none;
+    color: var(--secondary-color);
+    border-radius: 10px;
+    outline: 2px solid var(--secondary-color);
+}
+  
+.list:active {
+    color: var(--grey-cyan);
+    outline: 2px solid var(--grey-cyan);
+}
+
+button,
+.button {
+  border: none;
+  font-family: inherit;
+  background-color: var(--primary-color);
+  color: var(--primary-background-color);
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 10px;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.3);
+  transition-duration: 0.2s;
+  transition-property: opacity, background-color, color;
+}
+
+button:hover,
+button:focus,
+.button:hover,
+.button:focus {
+  color: var(--primary-background-color);
+  cursor: pointer;
+  background-color: var(--secondary-color);
+  opacity: 0.8;
+}
+
+
+@media all and (max-width: 450px) {
+    header {
+        width: auto;
+        line-height: 2;
+    }
+
+    .list,
+    .list:active,
+    .list:visited,
+    .list:focus,
+    .list:hover {
+        outline: none;
+        align-items: center;
+    }
+
+    .before::before {
+        content: "\A";
+        white-space: pre;
+    }
+}
