@@ -31,7 +31,7 @@ let pokemonList = [
  */
 
 for (let i = 0; i < pokemonList.length; i++){
-  document.write("<p>" + pokemonList[i].name + " (weight: " + pokemonList[i].weight + ")</p>")
+  document.write("<p>" + pokemonList[i].name + " (weight: " + pokemonList[i].weight + ")")
 
   if (pokemonList[i].weight > 100) {
     document.write(" - That's a heavy pokemon!");
