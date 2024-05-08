@@ -17,25 +17,12 @@ let pokemonList = [
 ]
 
 
-/* for (let i = 0; i < pokemonList.length; i++) { // starting the array at position 0 
-    let pokemon = pokemonList[i]; // pokemon is the name of each object in the array
-    
-    document.write(`<p>${pokemon.name} (weight: ${pokemon.weight})`); // looping through the name and the weight of each pokemon (object)
+pokemonList.forEach(function(pokemon) {
+  document.write(pokemon.name + " (weight: " + pokemon.weight + ")");
 
-    if (pokemon.weight > 100) {
-        document.write(" - That's a heavy pokemon!");
-    }
-    
-    document.write("<p>");
-}
- */
-
-for (let i = 0; i < pokemonList.length; i++){
-  document.write("<p>" + pokemonList[i].name + " (weight: " + pokemonList[i].weight + ")")
-
-  if (pokemonList[i].weight > 100) {
+  if (pokemon.weight > 100) {
     document.write(" - That's a heavy pokemon!");
   }
 
-  document.write("<p>");
-}
+  document.write("</p>");
+});
