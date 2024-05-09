@@ -16,6 +16,9 @@ let pokemonRepository = (function () {
       types: ['fairy', 'normal']
     }
   ];
+ 
+/*let result = pokemonRepository.filter((pokemon) => pokemon.length > 6);
+console.log(result); */
 
 function getAll() {
   return pokemonList;
