@@ -19,11 +19,27 @@ let pokemonRepository = (function () {
 
 function getAll() {
   return pokemonList;
-  }
+}
 
 function add(pokemon) {
-  pokemonList.push(pokemon);
+  let validInput = {
+    name: "string",
+    weight: "number",
+    types: "object"
+  };
+
+  let isValid = Object.keys(validInput).every(key => {
+    return pokemon.hasOwnProperty(key) && typeof pokemon[key] === validInput[key]; // checking if key exists in pokemon object and if type is same
+  });
+
+  if (isValid && Array.isArray(pokemon.types) && pokemon.types.length > 0) { // add pokemon if conditions are fulfilled
+    pokemonList.push(pokemon);
+  } else {
+    console.error('Invalid pokemon object:', pokemon);
   }
+
+  pokemonList.push(pokemon);
+}
 
 return {
   getAll: getAll,
