@@ -25,7 +25,19 @@ function getAll() {
 }
 
 function add(pokemon) {
-  let validInput = {
+  if (
+    typeof pokemon === "object" &&
+    "name" in pokemon &&
+    "weight" in pokemon &&
+    "types" in pokemon
+  ) {
+    pokemonList.push(pokemon);
+  } else {
+    console.log("Invalid pokemon object");
+  }
+}
+  
+  /* let validInput = {
     name: "string",
     weight: "number",
     types: "object"
@@ -41,8 +53,7 @@ function add(pokemon) {
     console.error('Invalid pokemon object:', pokemon);
   }
 
-  pokemonList.push(pokemon);
-}
+  pokemonList.push(pokemon); */
 
 return {
   getAll: getAll,
@@ -50,11 +61,16 @@ return {
   };
 })();
 
+console.log(pokemonRepository.getAll());
+pokemonRepository.add({name: "Charmander", weight: 8.5, types: ['fire']});
+
 pokemonRepository.getAll().forEach(function (pokemon) {
   document.write(pokemon.name + " (weight: " + pokemon.weight + ")");
 
   if (pokemon.weight > 100) {
     document.write(" - That's a heavy pokemon!");
+  } else if (pokemon.weight < 50) {
+    document.write(" - That's a lightweight!")
   }
 
   document.write("</p>");
