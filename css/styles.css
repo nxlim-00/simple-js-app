@@ -49,7 +49,7 @@ header {
 }
 
 button,
-.button {
+.button-class {
   border: none;
   font-family: inherit;
   background-color: var(--primary-color);
@@ -58,14 +58,28 @@ button,
   padding: 10px;
   border-radius: 10px;
   border-bottom: 2px solid rgba(0, 0, 0, 0.3);
-  transition-duration: 0.2s;
+  transition-duration: 0.15s;
+  transition-property: opacity, background-color, color;
+}
+
+button:active,
+button:focus,
+.button-class:active,
+.button-class:focus {
+  border: none;
+  font-family: inherit;
+  background-color: var(--primary-background-color);
+  color: var(--primary-color);
+  text-decoration: none;
+  padding: 10px;
+  border: 2px solid var(--primary-color);
+  border-radius: 10px;
+  transition-duration: 0.15s;
   transition-property: opacity, background-color, color;
 }
 
 button:hover,
-button:focus,
-.button:hover,
-.button:focus {
+.button-class:hover {
   color: var(--primary-background-color);
   cursor: pointer;
   background-color: var(--secondary-color);
