@@ -37,27 +37,36 @@ function add(pokemon) {
   }
 }
   
-  /* let validInput = {
-    name: "string",
-    weight: "number",
-    types: "object"
-  };
+function showDetails(pokemon) {
+  console.log(pokemon)
+}
 
-  let isValid = Object.keys(validInput).every(key => {
-    return pokemon.hasOwnProperty(key) && typeof pokemon[key] === validInput[key]; // checking if key exists in pokemon object and if type is same
+// Function add list item to DOM
+function addListItem(pokemon) {
+  let pokemonList = document.querySelector(".pokemon-list");
+  
+  // create list item
+  let listPokemon = document.createElement("li");
+  listPokemon.style.listStyle = "none";
+
+  // create button
+  let button = document.createElement("button");
+  button.innerText = pokemon.name;
+  button.classList.add("button-class");
+
+  // append button to list item
+  listPokemon.appendChild(button);
+  pokemonList.appendChild(listPokemon);
+  button.addEventListener("click", function(){
+    showDetails(pokemon);
   });
-
-  if (isValid && Array.isArray(pokemon.types) && pokemon.types.length > 0) { // add pokemon if conditions are fulfilled
-    pokemonList.push(pokemon);
-  } else {
-    console.error('Invalid pokemon object:', pokemon);
-  }
-
-  pokemonList.push(pokemon); */
+};
 
 return {
   getAll: getAll,
-  add: add
+  add: add,
+  addListItem: addListItem,
+  showDetails: showDetails
   };
 })();
 
@@ -65,13 +74,5 @@ console.log(pokemonRepository.getAll());
 pokemonRepository.add({name: "Charmander", weight: 8.5, types: ['fire']});
 
 pokemonRepository.getAll().forEach(function (pokemon) {
-  document.write(pokemon.name + " (weight: " + pokemon.weight + ")");
-
-  if (pokemon.weight > 100) {
-    document.write(" - That's a heavy pokemon!");
-  } else if (pokemon.weight < 50) {
-    document.write(" - That's a lightweight!")
-  }
-
-  document.write("</p>");
+  pokemonRepository.addListItem(pokemon);
 });
