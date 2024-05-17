@@ -50,6 +50,7 @@ header {
 
 button,
 .button-class {
+  margin-bottom: 10px;
   border: none;
   font-family: inherit;
   background-color: var(--primary-color);
