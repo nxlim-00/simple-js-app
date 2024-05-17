@@ -87,6 +87,12 @@ button:hover,
   opacity: 0.8;
 }
 
+#loading-message {
+  display: none; /* Initially hidden */
+  border: 1px solid var(--grey-cyan);
+  padding: 10px;
+}
+
 @media all and (max-width: 450px) {
   header {
     width: auto;

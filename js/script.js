@@ -18,6 +18,15 @@ function add(pokemon) {
   }
 }
 
+// loading message while data gets fetched
+function showLoadingMessage() {
+  document.getElementById('loading-message').style.display = 'block';
+}
+
+function hideLoadingMessage() {
+  document.getElementById('loading-message').style.display = 'none';
+}
+
 // Function add list item to DOM
 function addListItem(pokemon) {
   let pokemonList = document.querySelector(".pokemon-list");
@@ -43,6 +52,7 @@ function addListItem(pokemon) {
 
 // promise function to load list of pokemons
 async function loadList() {
+  showLoadingMessage();
   return fetch(apiUrl).then(function (response) { // get  
     return response.json(); // convert response to json => all the data from the apiUrl
   }).then(function (json) {
@@ -60,12 +70,15 @@ async function loadList() {
     });
   }).catch(function (e) {
     console.error(e);
-  })
+  })/* .finally {
+    hideLoadingMessage();
+  } */
 }
 
 // load details of pokemon
 async function loadDetails (item) {
   let url = item.detailsUrl; // detailsUrl defined in loadList function
+  showLoadingMessage();
   try {
     const response = await fetch(url);
     const details = await response.json();
@@ -75,6 +88,8 @@ async function loadDetails (item) {
     item.types = details.types;
   } catch (e) {
     console.error(e);
+  } finally {
+    hideLoadingMessage();
   }
 }
 
@@ -90,7 +105,9 @@ return {
   addListItem: addListItem,
   showDetails: showDetails,
   loadList: loadList,
-  loadDetails: loadDetails
+  loadDetails: loadDetails,
+  showLoadingMessage: showLoadingMessage,
+  hideLoadingMessage: hideLoadingMessage
   };
 })();
 
