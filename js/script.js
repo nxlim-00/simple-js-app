@@ -68,11 +68,12 @@ async function loadList() {
       add(pokemon);
       console.log(pokemon);
     });
-  }).catch(function (e) {
-    console.error(e);
-  })/* .finally {
+  }).then(function () {
     hideLoadingMessage();
-  } */
+  })
+  .catch(function (e) {
+    console.error(e);
+  })
 }
 
 // load details of pokemon
