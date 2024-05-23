@@ -88,7 +88,7 @@ async function loadDetails (item) {
     item.imageUrl = details.sprites.front_default; // sprites.front_default = item in api and defines the preferred perspective of pokemon
     item.height = details.height;
     item.weight = details.weight;
-    item.types = details.types;
+    //item.types.type.name = details.types.type.name;
   } catch (e) {
     console.error(e);
   } finally {
@@ -117,14 +117,12 @@ function showModal(pokemon) {
 
   // creating element for content
   let contentElement = document.createElement('p');
-  contentElement.innerText = ('Height: ' + pokemon.height + "\n" + 'Weight: ' + pokemon.weight);
+  contentElement.innerText = ('Height: ' + pokemon.height + '\n' + 'Weight: ' + pokemon.weight);
+  // + '\n' + 'Types: ' + pokemon.types
 
+  //create element for image
   let imageElement = document.createElement('img');
- /*  imageElement.setAttribute("src", img);
-  imageElement.setAttribute("width", "304");
-  imageElement.setAttribute("height", "228"); */
-
-  imageElement.src = apiUrl
+  imageElement.src = pokemon.imageUrl
 
 
   // append elements to modal; these 3 childs are appended inside the modal
