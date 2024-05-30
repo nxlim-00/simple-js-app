@@ -5,3 +5,9 @@
   --secondary-color: #00c6cf;
   --grey-cyan: #324b4c;
 }
+
+#loading-message {
+  display: none;
+  border: 1px solid var(--grey-cyan);
+  padding: 10px;
+}
