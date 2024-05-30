@@ -72,11 +72,11 @@ async function loadDetails (item) {
 // function add list item to DOM
 function addListItem(pokemon) {
   let pokeList = document.querySelector(".pokemon-list");
-  let listItem = document.createElement("li");
+  let listItem = document.createElement("div");
   let button = document.createElement("button");
 
   button.innerText = pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1);
-  button.classList.add('btn', 'btn-secondary', 'btn-block');
+  button.classList.add('btn-primary', 'btn');
   button.setAttribute("data-target", "#pokeModal");
   button.setAttribute("data-toggle", "modal");
   listItem.classList.add("list-group-item", "list-group-item-action");
