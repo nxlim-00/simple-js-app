@@ -6,8 +6,26 @@
   --grey-cyan: #324b4c;
 }
 
+body {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
 #loading-message {
   display: none;
   border: 1px solid var(--grey-cyan);
   padding: 10px;
+}
+
+.poke-btn {
+  width: 150px;
+}
+
+.poke-btn-container {
+  margin-bottom: 10px;
+}
+
+.btn-container {
+  text-align: center;
 }
