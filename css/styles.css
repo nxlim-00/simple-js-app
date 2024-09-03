@@ -18,14 +18,29 @@ body {
   padding: 10px;
 }
 
-.poke-btn {
-  width: 150px;
-}
-
 .poke-btn-container {
   margin-bottom: 10px;
 }
 
 .btn-container {
   text-align: center;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-gap: 50px;
+  margin: 20px auto;
+  width: 90%;
+}
+
+.poke-btn {
+  width: 200px;
+  margin: 15px auto;
+  padding: 20px 50px;
+  background-color: var(--primary-color);
+}
+
+.poke-btn:hover {
+  background-color: var(--secondary-color);
 }
